@@ -1,10 +1,28 @@
 import { Avatar, Dropdown, Navbar as NavTag } from 'flowbite-react';
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, Navigate, NavLink } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { useContext } from 'react';
 import Logo from '../assets/images/fav.ico';
 import AvatarImg from '../assets/images/avatar.png';
+import AuthContext from '../Contexts/AuthContext';
 
 export default function Navbar() {
+    const { logOut, user, setUser, setLoading } = useContext(AuthContext);
+
+    const handleClick = () => {
+        logOut()
+            .then(() => {
+                toast.success('Sign-out successful.');
+                setLoading(false);
+                setUser(null);
+                Navigate('/');
+            })
+            .catch((er) => {
+                console.error(er);
+            });
+    };
+
     const pages = [
         { pageName: 'Home', link: '/', id: 1 },
         { pageName: 'Services', link: '/services', id: 2 },
@@ -23,6 +41,36 @@ export default function Navbar() {
                     </span>
                 </Link>
                 <div className="flex md:order-2">
+                    {/* sign in - sign up */}
+                    <div className="  dark:text-white">
+                        {user?.uid ? (
+                            <li className="list-none">
+                                <button
+                                    onClick={handleClick}
+                                    type="button"
+                                    className="button text-black"
+                                >
+                                    logout
+                                </button>
+                            </li>
+                        ) : (
+                            <div className="flex mx-5">
+                                <li className="list-none">
+                                    <Link to="/signin" className="mr-2 text-black dark:text-white ">
+                                        SignIn
+                                    </Link>
+                                </li>
+                                <li className="list-none">
+                                    <Link to="/signup" className="text-black dark:text-white">
+                                        SignUp
+                                    </Link>
+                                </li>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* avatar dropdown */}
+
                     <Dropdown
                         arrowIcon={false}
                         inline

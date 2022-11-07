@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
-import Error from '../pages/Error';
+import Error from '../components/Error';
 
 import SignIn from '../pages/Authentication/SignIn';
 import SignUp from '../pages/Authentication/SignUp';
@@ -9,7 +9,7 @@ import SignUp from '../pages/Authentication/SignUp';
 import Root from './Root';
 
 import Home from '../pages/Home/Home';
-import About from '../pages/About';
+import About from '../components/About';
 import ProtectedRoute from './ProtectedRoute';
 import Services from '../pages/services/Services';
 import ServiceDetails from '../pages/services/ServiceDetails';

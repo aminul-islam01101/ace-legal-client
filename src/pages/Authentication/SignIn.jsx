@@ -36,9 +36,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                user.uid
-                    ? navigate(from, { replace: true })
-                    : toast.error('Please verify your email address.');
+                user.uid && navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error(error);

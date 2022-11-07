@@ -21,7 +21,14 @@ const router = createBrowserRouter(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
+            <Route
+                path="/services"
+                element={
+                    <ProtectedRoute>
+                        <Services />
+                    </ProtectedRoute>
+                }
+            />
             <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/blogs" element={<Blogs />} />
 

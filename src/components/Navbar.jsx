@@ -1,6 +1,6 @@
 import { Avatar, Dropdown, Navbar as NavTag } from 'flowbite-react';
 
-import { Link, Navigate, NavLink } from 'react-router-dom';
+import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
 import Logo from '../assets/images/fav.ico';
@@ -9,6 +9,7 @@ import AuthContext from '../Contexts/AuthContext';
 
 export default function Navbar() {
     const { logOut, user, setUser, setLoading } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleClick = () => {
         logOut()
@@ -16,7 +17,7 @@ export default function Navbar() {
                 toast.success('Sign-out successful.');
                 setLoading(false);
                 setUser(null);
-                Navigate('/');
+                navigate('/');
             })
             .catch((er) => {
                 console.error(er);

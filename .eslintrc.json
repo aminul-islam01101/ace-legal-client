@@ -11,6 +11,7 @@
         "airbnb/hooks",
         "eslint:recommended",
         "plugin:jsx-a11y/recommended",
+        "eslint-config-prettier",
 
         "prettier"
     ],
@@ -19,7 +20,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["prettier", "react", "react-hooks"],
+    "plugins": ["prettier", "react", "react-hooks", "import"],
     "rules": {
         "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
         "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
@@ -28,6 +29,7 @@
         "no-alert": 0,
         "react/state-in-constructor": 0,
         "indent": 0,
+        "no-unused-vars": "warn",
         "linebreak-style": 0,
         "react/prop-types": 0,
         "no-unused-expressions": ["warn", { "allowShortCircuit": true, "allowTernary": true }],

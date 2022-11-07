@@ -1,5 +1,14 @@
 import React from 'react';
+import Slider from './slider/Slider';
 
-export default function Home() {
-    return <div>Home</div>;
-}
+const Home = () => {
+    console.log('home');
+
+    return (
+        <div>
+            <Slider />
+        </div>
+    );
+};
+
+export default Home;

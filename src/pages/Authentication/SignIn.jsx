@@ -3,7 +3,7 @@
 
 import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { FaGithub } from 'react-icons/fa';
+
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../Contexts/AuthContext';

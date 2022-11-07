@@ -11,10 +11,11 @@ import Root from './Root';
 import Home from '../pages/Home/Home';
 import About from '../components/About';
 import ProtectedRoute from './ProtectedRoute';
-import Services from '../pages/services/Services';
-import ServiceDetails from '../pages/services/ServiceDetails';
+
+import ServiceDetails from '../pages/servicesAndReviews/Services/ServiceDetails';
 import Blogs from '../pages/blogs/Blogs';
-import AddService from '../pages/services/AddService';
+import AddService from '../pages/servicesAndReviews/Services/AddService';
+import ServicesAndReviews from '../pages/servicesAndReviews/ServicesAndReviews';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,7 +26,7 @@ const router = createBrowserRouter(
                 path="/services"
                 element={
                     <ProtectedRoute>
-                        <Services />
+                        <ServicesAndReviews />
                     </ProtectedRoute>
                 }
             />

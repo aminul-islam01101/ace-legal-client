@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const flowbite = require('flowbite/plugin');
 const Form = require('@tailwindcss/forms');
+const Typography = require('@tailwindcss/typography');
 
 module.exports = {
     content: [
@@ -141,5 +142,5 @@ module.exports = {
             },
         },
     },
-    plugins: [flowbite, Form],
+    plugins: [flowbite, Form, Typography ],
 };

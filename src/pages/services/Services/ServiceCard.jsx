@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceCard = ({ service: { _id, img, name, description } }) => {
-    const handleClick = () => {
-        console.log('test click');
-    };
+    console.log('test click');
+
     return (
         <div>
             <div className="w-full h-full rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
@@ -21,13 +20,11 @@ const ServiceCard = ({ service: { _id, img, name, description } }) => {
                 </PhotoProvider>
                 <div className="flex flex-col justify-between p-6 space-y-8">
                     <div className="space-y-2">
-                        <h2 className="text-3xl font-semibold tracking-wide">
-                            {description.slice(0, 100)}...
-                        </h2>
-                        <p className="dark:text-gray-100">{name}</p>
+                        <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>
+                        <p className="dark:text-gray-100"> {description.slice(0, 100)}...</p>
                     </div>
                     <Link to={`/service/${_id}`}>
-                        <button type="button" onClick={handleClick} className="button w-full">
+                        <button type="button" className="button w-full">
                             Details
                         </button>
                     </Link>

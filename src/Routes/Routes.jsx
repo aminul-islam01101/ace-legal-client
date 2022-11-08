@@ -12,25 +12,20 @@ import Home from '../pages/Home/Home';
 import About from '../components/About';
 import ProtectedRoute from './ProtectedRoute';
 
-import ServiceDetails from '../pages/servicesAndReviews/Services/ServiceDetails';
 import Blogs from '../pages/blogs/Blogs';
-import AddService from '../pages/servicesAndReviews/Services/AddService';
-import ServicesAndReviews from '../pages/servicesAndReviews/ServicesAndReviews';
+
+import Services from '../pages/services/Services';
+import ServiceAndReviews from '../pages/services/Services/ServiceAndReviews';
+import AddService from '../pages/services/Services/AddService';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route
-                path="/services"
-                element={
-                    <ProtectedRoute>
-                        <ServicesAndReviews />
-                    </ProtectedRoute>
-                }
-            />
-            <Route path="/services/:id" element={<ServiceDetails />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/service/:id" element={<ServiceAndReviews />} />
+
             <Route path="/blogs" element={<Blogs />} />
 
             <Route

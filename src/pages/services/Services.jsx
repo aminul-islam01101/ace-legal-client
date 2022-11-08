@@ -2,8 +2,9 @@
 import axios from 'axios';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
-import ServiceCard from './ServiceCard';
+
+import ServiceCard from './Services/ServiceCard';
+import Head from '../../components/Head';
 
 const ServicesSection = () => {
     const {
@@ -14,7 +15,8 @@ const ServicesSection = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-3'>
+            <Head title="Services" />
+            <div className="grid grid-cols-3">
                 {allServices.map((service) => (
                     <ServiceCard key={service._id} service={service} />
                 ))}

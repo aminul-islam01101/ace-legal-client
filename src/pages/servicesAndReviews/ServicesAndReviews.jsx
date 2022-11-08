@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '../../components/Head';
 import Services from './Services/Services';
 
 const ServicesAndReviews = () => {
@@ -6,6 +7,7 @@ const ServicesAndReviews = () => {
 
     return (
         <div>
+            <Head title="Services" />
             <Services />
         </div>
     );

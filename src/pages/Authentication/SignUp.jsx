@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Head from '../../components/Head';
 // import { Link, Navigate, useLocation } from 'react-router-dom';
 import AuthContext from '../../Contexts/AuthContext';
 
@@ -50,6 +51,7 @@ const SignUp = () => {
 
     return (
         <div className="container w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+            <Head title="SignUp" />
             <h1 className="text-2xl font-bold text-center">Sign Up</h1>
             <form
                 onSubmit={handleSubmit(onSubmit)}

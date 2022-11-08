@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Head from '../../components/Head';
 import AuthContext from '../../Contexts/AuthContext';
 
 const Login = () => {
@@ -77,6 +78,7 @@ const Login = () => {
 
     return (
         <div className="grid min-h-90v place-items-center my-6 ">
+            <Head title="SignIn" />
             <h2 className="text-xl text-rose-600 font-bold my-10">{error}</h2>
             <div className="w-full max-w-md space-y-3 rounded-xl p-8 bg-slate-300 dark:bg-gray-900 dark:text-gray-100">
                 <h1 className="text-center text-2xl font-bold">Login</h1>

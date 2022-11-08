@@ -4,12 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import NotAvailable from '../../../assets/images/Image_not_available.png';
 
-const ServiceDetails = () => {
-    const { id } = useParams();
-    const { data: serviceDetails } = useQuery(['service'], () =>
-        axios.get(`https://ace-legal-server.vercel.app/service/${id}`).then((res) => res.data)
-    );
-    const { img } = serviceDetails;
+const ServiceDetails = ({ serviceDetails: { img } }) => {
+    console.log('hello');
 
     return (
         <div>

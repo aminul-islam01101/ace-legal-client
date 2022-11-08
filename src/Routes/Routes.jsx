@@ -17,6 +17,7 @@ import Blogs from '../pages/blogs/Blogs';
 import Services from '../pages/services/Services';
 import ServiceAndReviews from '../pages/services/Services/ServiceAndReviews';
 import AddService from '../pages/services/Services/AddService';
+import MyReviews from '../pages/services/reviews/MyReviews';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -33,6 +34,15 @@ const router = createBrowserRouter(
                 element={
                     <ProtectedRoute>
                         <AddService />
+                    </ProtectedRoute>
+                }
+                loader={async () => fetch('https://ace-legal-server.vercel.app/services')}
+            />
+            <Route
+                path="/addService/"
+                element={
+                    <ProtectedRoute>
+                        <MyReviews />
                     </ProtectedRoute>
                 }
                 loader={async () => fetch('https://ace-legal-server.vercel.app/services')}

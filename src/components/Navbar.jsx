@@ -30,6 +30,10 @@ export default function Navbar() {
         { pageName: 'About', link: '/about', id: 3 },
         { pageName: 'Blogs', link: '/blogs', id: 4 },
     ];
+    const protectedPage = [
+        { pageName: 'Add Service', link: '/addservice', id: 1 },
+        { pageName: 'My Reviews', link: '/myreviews', id: 2 },
+    ];
 
     return (
         <div>
@@ -75,7 +79,9 @@ export default function Navbar() {
                     <Dropdown
                         arrowIcon={false}
                         inline
-                        label={<Avatar alt="User settings" img={AvatarImg} rounded />}
+                        label={
+                            <Avatar alt="User settings" img={user?.photoURL || AvatarImg} rounded />
+                        }
                     >
                         <Dropdown.Header>
                             <span className="block text-sm">Bonnie Green</span>
@@ -109,6 +115,25 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                     ))}
+
+                    {user?.uid &&
+                        protectedPage.map((page) => (
+                            <li
+                                className=" rounded px-1 py-2 hover:dark:text-black hover:bg-[#d3ecf3] transition ease-in-out delay-150 hover:shadow-lg  "
+                                key={page.id}
+                            >
+                                <NavLink
+                                    to={page.link}
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? 'bg-[#0097C3]   text-white px-3 py-2 rounded shadow-lg '
+                                            : ''
+                                    }
+                                >
+                                    {page.pageName}
+                                </NavLink>
+                            </li>
+                        ))}
                 </NavTag.Collapse>
             </NavTag>
         </div>

@@ -2,8 +2,8 @@
 import React from 'react';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
-const ReviewCard = ({ review: { message, customerName, customerImage, position } }) => {
-    console.log('something');
+const ReviewCard = ({ review }) => {
+    const { message, customerName, position } = review;
 
     return (
         <div>
@@ -12,14 +12,16 @@ const ReviewCard = ({ review: { message, customerName, customerImage, position }
                     <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
                         <FaQuoteLeft className="text-3xl" />
                         {message}
-                        <div className="flex justify-end">
+                        <span className="flex justify-end">
                             <FaQuoteRight className="text-3xl " />
-                        </div>
+                        </span>
                     </p>
                 </div>
                 <div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-violet-400 dark:text-gray-900">
                     <img
-                        src={customerImage || 'https://source.unsplash.com/50x50/?portrait?3'}
+                        src={
+                            review?.customerImage || 'https://source.unsplash.com/50x50/?portrait?3'
+                        }
                         alt=""
                         className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-700"
                     />

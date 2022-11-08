@@ -22,7 +22,7 @@ const Reviews = ({ serviceDetails }) => {
                     </div>
                 )}
             </div>
-            <AllReview />
+            <AllReview serviceDetails={serviceDetails} />
         </div>
     );
 };

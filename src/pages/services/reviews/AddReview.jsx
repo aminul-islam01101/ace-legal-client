@@ -36,7 +36,7 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
             .get(`https://ace-legal-server.vercel.app/reviews?id=${_id}&email=${email}`)
             .then((res) => res.data)
     );
-    console.log(storedReview[0]?.email);
+    console.log(storedReview);
 
     // react form hook  submit handler
     const onSubmit = (data) => {

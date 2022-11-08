@@ -11,6 +11,8 @@ const ServiceAndReviews = () => {
         axios.get(`https://ace-legal-server.vercel.app/service/${id}`).then((res) => res.data)
     );
 
+    console.log(serviceDetails);
+
     return (
         <div>
             <ServiceDetails serviceDetails={serviceDetails} />

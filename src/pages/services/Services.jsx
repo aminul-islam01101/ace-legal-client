@@ -9,7 +9,7 @@ import Head from '../../components/Head';
 const ServicesSection = () => {
     const {
         data: { allServices },
-    } = useQuery(['fewServices'], () =>
+    } = useQuery(['allServices'], () =>
         axios.get('https://ace-legal-server.vercel.app/services').then((res) => res.data)
     );
 

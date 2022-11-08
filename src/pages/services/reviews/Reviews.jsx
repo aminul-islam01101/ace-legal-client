@@ -5,7 +5,7 @@ import AuthContext from '../../../Contexts/AuthContext';
 import AddReview from './AddReview';
 import AllReview from './AllReview';
 
-const Reviews = ({serviceDetails}) => {
+const Reviews = ({ serviceDetails }) => {
     const { user } = useContext(AuthContext);
 
     return (

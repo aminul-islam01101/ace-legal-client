@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../../Contexts/AuthContext';
 
-export default function AddReview({ serviceDetails: { img, name, _id } }) {
+
+const AddReview = ({ serviceDetails: { img, name, _id } }) => {
+    const [prevReview, setPrevReview] = useState('');
+
     // react form hook data
     const {
         register,
@@ -26,8 +30,21 @@ export default function AddReview({ serviceDetails: { img, name, _id } }) {
         onSuccess: () => toast.success('success'),
         onError: () => toast.error('there was an error'),
     });
+
+    // already stored review check
+    const { data: storedReview } = useQuery(['storedReview'], () =>
+        axios
+            .get(`https://ace-legal-server.vercel.app/reviews?id=${_id}&email=${email}`)
+            .then((res) => res.data)
+    );
+    console.log(storedReview[0].email);
+
     // react form hook  submit handler
     const onSubmit = (data) => {
+        if (storedReview) {
+            setPrevReview('already reviewed.try to update');
+            return;
+        }
         const reviewData = {
             ...data,
             customerName: displayName,
@@ -93,9 +110,11 @@ export default function AddReview({ serviceDetails: { img, name, _id } }) {
                         </label>
                     </div>
                 </fieldset>
+                <div>{storedReview && <Link className='underline' to="/myreviews">{prevReview}</Link>}</div>
 
                 <input className="button" type="submit" />
             </form>
         </section>
     );
-}
+};
+export default AddReview;

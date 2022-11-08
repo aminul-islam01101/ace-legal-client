@@ -39,7 +39,7 @@ const router = createBrowserRouter(
                 loader={async () => fetch('https://ace-legal-server.vercel.app/services')}
             />
             <Route
-                path="/addService/"
+                path="/myreviews/"
                 element={
                     <ProtectedRoute>
                         <MyReviews />

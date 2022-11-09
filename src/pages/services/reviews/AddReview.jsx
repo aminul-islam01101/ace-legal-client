@@ -31,19 +31,19 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
     });
 
     // already stored review check
-    const { data: storedReview } = useQuery(['storedReview'], () =>
-        axios
-            .get(`https://ace-legal-server.vercel.app/reviews?id=${_id}&email=${email}`)
-            .then((res) => res.data)
-    );
-    console.log(storedReview);
+    // const { data: storedReview } = useQuery(['storedReview'], () =>
+    //     axios
+    //         .get(`https://ace-legal-server.vercel.app/reviews?id=${_id}&email=${email}`)
+    //         .then((res) => res.data)
+    // );
+    // console.log(storedReview);
 
     // react form hook  submit handler
     const onSubmit = (data) => {
-        if (storedReview[0]?.email) {
-            setPrevReview('already reviewed.try to update');
-            return;
-        }
+        // if (storedReview[0]?.email) {
+        //     setPrevReview('already reviewed.try to update');
+        //     return;
+        // }
         const reviewData = {
             ...data,
             customerName: displayName,
@@ -52,6 +52,7 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
             serviceName: name,
             serviceImage: img,
             serviceId: _id,
+            date: new Date(),
         };
 
         mutate(reviewData);
@@ -125,13 +126,13 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
                         </div>
                     </div>
                 </fieldset>
-                <div>
+                {/* <div>
                     {storedReview && (
                         <Link className="underline" to="/myreviews">
                             {prevReview}
                         </Link>
                     )}
-                </div>
+                </div> */}
 
                 <input className="button" type="submit" />
             </form>

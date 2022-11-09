@@ -2,12 +2,12 @@ import React from 'react';
 
 import NotAvailable from '../../../assets/images/Image_not_available.png';
 
-const ServiceDetails = ({ serviceDetails: { img } }) => (
+const ServiceDetails = ({ serviceDetails: { img,name } }) => (
     <div>
         <section>
             <div className="relative mx-auto max-w-screen-xl px-4 py-8">
                 <div>
-                    <h1 className="text-2xl font-bold lg:text-3xl">Simple Clothes Basic Tee</h1>
+                    <h1 className="text-2xl font-bold lg:text-3xl">{name}</h1>
 
                     <p className="mt-1 text-sm text-gray-500">SKU: #012345</p>
                 </div>

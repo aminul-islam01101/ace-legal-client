@@ -1,14 +1,29 @@
 /* eslint-disable no-underscore-dangle */
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import ReviewCard from './ReviewCard';
 
-const AllReview = ({ serviceDetails: { _id } }) => {
-    const { data: reviews } = useQuery(['reviews'], () =>
-        axios.get(`https://ace-legal-server.vercel.app/reviews?id=${_id}`).then((res) => res.data)
-    );
-    console.log(reviews);
+const AllReview = ({ serviceDetails }) => {
+    const [reviews, setReviews] = useState([]);
+    // const [refresh, setRefresh] = useState(false);
+    console.log(serviceDetails._id);
+
+    useEffect(() => {
+        setReviews([]);
+        fetch(`https://ace-legal-server.vercel.app/reviewsById?id=${serviceDetails?._id}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    setReviews([]);
+                    setReviews(data.reviews);
+                } else {
+                    toast.error('loading error');
+                }
+            })
+            .catch((err) => toast.error(err.message));
+    }, [serviceDetails?._id]);
+    console.log(reviews.length);
 
     return (
         <div>

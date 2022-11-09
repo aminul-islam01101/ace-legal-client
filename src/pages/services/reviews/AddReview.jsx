@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation} from '@tanstack/react-query';
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+
 import AuthContext from '../../../Contexts/AuthContext';
 
 const AddReview = ({ serviceDetails: { img, name, _id } }) => {

@@ -12,12 +12,9 @@ const SignUp = () => {
     const navigate = useNavigate();
     const {
         register,
-
         handleSubmit,
         getValues,
-
         reset,
-
         formState: { errors },
     } = useForm({ mode: 'onChange' });
 

@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import {
     createUserWithEmailAndPassword,
-
     GoogleAuthProvider,
     onAuthStateChanged,
-
     sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
@@ -22,7 +20,6 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-
     // create user functionality
     const createUser = (email, password) => {
         setLoading(true);
@@ -35,10 +32,10 @@ const UserContext = ({ children }) => {
     };
     // logout functionality
     const logOut = () => {
+        localStorage.removeItem('ace-legal-token');
         setLoading(true);
         return signOut(auth);
     };
-
 
     // reset pass functionality
     const sendPassResetEmail = (email) => sendPasswordResetEmail(auth, email);
@@ -56,7 +53,7 @@ const UserContext = ({ children }) => {
             ) {
                 setUser(firebaseUser);
             }
-    
+
             setLoading(false);
         });
 
@@ -69,13 +66,11 @@ const UserContext = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
- 
 
     // const value = useMemo(() => ({ authInfo }), []) as UserValue;
     return (
         <AuthContext.Provider
             value={{
-            
                 user,
                 loading,
                 createUser,
@@ -85,9 +80,8 @@ const UserContext = ({ children }) => {
                 sendPassResetEmail,
                 updateUserProfile,
                 googleSignIn,
-            
+
                 setUser,
-            
             }}
         >
             {children}

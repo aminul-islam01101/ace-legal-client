@@ -3,11 +3,12 @@
 
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../Contexts/AuthContext';
-import MyReviewRow from './MyReviewRow';
+import MyReviewCard from './MyReviewCard';
 
 const MyReviews = () => {
     const { user, logOut } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
+    // const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
         let loading = true;
@@ -36,12 +37,36 @@ const MyReviews = () => {
                 loading = false;
             });
     }, [user?.email, logOut]);
-    console.log(myReviews?.reviews);
+
+    console.log(myReviews);
+
+    const handleDelete = (id) => {
+        const proceed = window.confirm('Are you sure, you want to cancel this order');
+        if (proceed) {
+            fetch(`https://ace-legal-server.vercel.app/myreview/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('ace-legal-token')}`,
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+
+                    if (data.deletedCount) {
+                        alert('deleted successfully');
+                        const remaining = myReviews?.reviews?.filter((review) => review._id !== id);
+                        setMyReviews(remaining);
+                    }
+                });
+        }
+    };
+    console.log(myReviews);
 
     return (
         <div>
             {myReviews?.reviews?.map((myReview) => (
-                <MyReviewRow key={myReview._id} myReview={myReview} />
+                <MyReviewCard key={myReview._id} myReview={myReview} handleDelete={handleDelete} />
             ))}
         </div>
     );

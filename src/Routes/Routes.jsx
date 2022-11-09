@@ -18,6 +18,7 @@ import Services from '../pages/services/Services';
 import ServiceAndReviews from '../pages/services/Services/ServiceAndReviews';
 import AddService from '../pages/services/Services/AddService';
 import MyReviews from '../pages/services/reviews/MyReviews';
+import UpdateReview from '../pages/services/reviews/UpdateReview';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -49,6 +50,14 @@ const router = createBrowserRouter(
                 element={
                     <ProtectedRoute>
                         <MyReviews />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/myreviews/edit/:id"
+                element={
+                    <ProtectedRoute>
+                        <UpdateReview />
                     </ProtectedRoute>
                 }
             />

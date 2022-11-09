@@ -1,11 +1,13 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/style-prop-object */
+
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 const MyReviewCard = ({
-    myReview: { serviceImage, message, serviceName, _id },
-    handleDelete,
-    handleUpdate,
+    myReview: { ratings, serviceImage, message, serviceName, _id },
+    handleClick,
 }) => {
     console.log('do');
 
@@ -24,17 +26,20 @@ const MyReviewCard = ({
                             </p>
                             <button
                                 type="button"
-                                onClick={() => handleDelete(_id)}
+                                onClick={() => handleClick(_id)}
                                 className="button"
                             >
                                 X
                             </button>
                         </div>
                         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{message}</p>
+                        <p> ratings:{ratings}</p>
                         <div className="flex justify-end mt-3 item-center">
-                            <button onClick={handleUpdate} type="button" className="button">
-                                Update
-                            </button>
+                            <Link to={`/myreviews/edit/${_id}`}>
+                                <button type="button" className="button">
+                                    Update
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

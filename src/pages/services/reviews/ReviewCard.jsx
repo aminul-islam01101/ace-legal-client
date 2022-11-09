@@ -1,13 +1,27 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import ReactStars from 'react-rating-stars-component';
 
 const ReviewCard = ({ review }) => {
-    const { message, customerName, position } = review;
+    const { message, customerName, position, ratings, date } = review;
 
     return (
         <div>
             <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+                <div className="flex justify-between">
+                    <p>Reviewed on: {date.split('T')[0]}</p>
+                    <ReactStars
+                        size={24}
+                        isHalf
+                        emptyIcon={<i className="far fa-star"></i>}
+                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                        fullIcon={<i className="fa fa-star"></i>}
+                        activeColor="#ffd700"
+                        value={Number(ratings)}
+                        readonly
+                    />
+                </div>
                 <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
                     <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
                         <FaQuoteLeft className="text-3xl" />

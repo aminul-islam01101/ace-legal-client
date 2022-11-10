@@ -14,8 +14,9 @@ const ServicesSection = () => {
     console.log(fewServices);
 
     return (
-        <div>
-            <div>
+        <div className="">
+            <h1 className="text-5xl text-center my-20">My Practice Areas</h1>
+            <div className="grid my-20 xl:grid-cols-3 gap-10 lg:gap-5">
                 {fewServices.map((service) => (
                     <ServiceCard key={service._id} service={service} />
                 ))}

@@ -8,8 +8,8 @@ const ReviewCard = ({ review }) => {
 
     return (
         <div>
-            <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
-                <div className="flex justify-between">
+            <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg p-5">
+                <div className="flex gap-5 flex-wrap justify-between">
                     <p>Reviewed on: {date.split('T')[0]}</p>
                     <ReactStars
                         size={24}
@@ -37,7 +37,7 @@ const ReviewCard = ({ review }) => {
                             review?.customerImage || 'https://source.unsplash.com/50x50/?portrait?3'
                         }
                         alt=""
-                        className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-700"
+                        className="w-10 h-10 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-700"
                     />
                     <p className="text-xl font-semibold leading-tight">{customerName}</p>
                     <p className="text-sm uppercase">{position}</p>

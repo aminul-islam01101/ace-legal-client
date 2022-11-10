@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from './slider/Slider';
 import ServicesSection from './ServiceSection/ServicesSection';
 import Head from '../../components/Head';
+import TestimonialSlider from './testimonial/TestimonialSlider';
 
 const Home = () => {
     console.log('home');
@@ -10,7 +11,10 @@ const Home = () => {
         <div>
             <Head title="Home" />
             <Slider />
-            <ServicesSection />
+            <div className="container">
+                <ServicesSection />
+                <TestimonialSlider />
+            </div>
         </div>
     );
 };

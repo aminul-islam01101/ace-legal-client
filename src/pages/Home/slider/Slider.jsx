@@ -31,7 +31,7 @@ export default function Slider() {
         >
             <SwiperSlide className="h-[75vh]">
                 <img
-                    src="https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg"
+                    src="https://i.ibb.co/GkxLWxj/concentrated-colleagues-watching-statistic-charts-talking-about-work-professional-senior-managers-yo.jpg"
                     alt=""
                 />
             </SwiperSlide>

@@ -45,15 +45,15 @@ export default function Navbar() {
                         Ace-Legal
                     </span>
                 </Link>
-                <div className="flex md:order-2">
+                <div className="flex md:order-2 items-center">
                     {/* sign in - sign up */}
-                    <div className="  dark:text-white">
+                    <div className=" hidden md:flex dark:text-white">
                         {user?.uid ? (
                             <li className="list-none">
                                 <button
                                     onClick={handleClick}
                                     type="button"
-                                    className="button text-black"
+                                    className="underline mr-3 text-black"
                                 >
                                     logout
                                 </button>
@@ -80,53 +80,59 @@ export default function Navbar() {
                         arrowIcon={false}
                         inline
                         label={
-                            <Avatar alt="User settings" img={user?.photoURL || AvatarImg} rounded />
+                            <Avatar  alt="User settings" img={user?.photoURL || AvatarImg} rounded />
                         }
                     >
                         <Dropdown.Header>
-                            <span className="block text-sm">Bonnie Green</span>
-                            <span className="block truncate text-sm font-medium">
-                                name@flowbite.com
-                            </span>
+                            <div className="  dark:text-white">
+                                {user?.uid ? (
+                                    <li className="list-none">
+                                        <button
+                                            onClick={handleClick}
+                                            type="button"
+                                            className=" underline text-black"
+                                        >
+                                            logout
+                                        </button>
+                                    </li>
+                                ) : (
+                                    <div className="flex flex-col gap-2 mx-5">
+                                        <li className="list-none underline">
+                                            <Link
+                                                to="/signin"
+                                                className="mr-2 text-black dark:text-white "
+                                            >
+                                                SignIn
+                                            </Link>
+                                        </li>
+                                        <Dropdown.Divider />
+                                        <li className="list-none underline">
+                                            <Link
+                                                to="/signup"
+                                                className="text-black dark:text-white"
+                                            >
+                                                SignUp
+                                            </Link>
+                                        </li>
+                                    </div>
+                                )}
+                            </div>
                         </Dropdown.Header>
-                        <Dropdown.Item>Dashboard</Dropdown.Item>
-                        <Dropdown.Item>Settings</Dropdown.Item>
-                        <Dropdown.Item>Earnings</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item>Sign out</Dropdown.Item>
                     </Dropdown>
                 </div>
 
-                <NavTag.Collapse>
-                    {pages.map((page) => (
-                        <li
-                            className=" rounded px-1 py-2 hover:dark:text-black hover:bg-[#d3ecf3] transition ease-in-out delay-150 hover:shadow-lg  "
-                            key={page.id}
-                        >
-                            <NavLink
-                                to={page.link}
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? 'bg-[#0097C3]   text-white px-3 py-2 rounded shadow-lg '
-                                        : ''
-                                }
-                            >
-                                {page.pageName}
-                            </NavLink>
-                        </li>
-                    ))}
-
-                    {user?.uid &&
-                        protectedPage.map((page) => (
+                <NavTag.Collapse className="md:space-x-1">
+                    <div className='flex gap-3'>
+                        {pages.map((page) => (
                             <li
-                                className=" rounded px-1 py-2 hover:dark:text-black hover:bg-[#d3ecf3] transition ease-in-out delay-150 hover:shadow-lg  "
+                                className=" rounded px-1 py-2 ml-0 hover:dark:text-black hover:bg-[#d3ecf3] transition ease-in-out delay-150 hover:shadow-lg  "
                                 key={page.id}
                             >
                                 <NavLink
                                     to={page.link}
                                     className={({ isActive }) =>
                                         isActive
-                                            ? 'bg-[#0097C3]   text-white px-3 py-2 rounded shadow-lg '
+                                            ? 'bg-[#0097C3]   text-white px-3 py-2  rounded shadow-lg '
                                             : ''
                                     }
                                 >
@@ -134,6 +140,26 @@ export default function Navbar() {
                                 </NavLink>
                             </li>
                         ))}
+
+                        {user?.uid &&
+                            protectedPage.map((page) => (
+                                <li
+                                    className=" rounded px-1 py-2  hover:dark:text-black hover:bg-[#d3ecf3] transition ease-in-out delay-150 hover:shadow-lg  "
+                                    key={page.id}
+                                >
+                                    <NavLink
+                                        to={page.link}
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? 'bg-[#0097C3]   text-white px-3 py-2 rounded shadow-lg '
+                                                : ''
+                                        }
+                                    >
+                                        {page.pageName}
+                                    </NavLink>
+                                </li>
+                            ))}
+                    </div>
                 </NavTag.Collapse>
             </NavTag>
         </div>

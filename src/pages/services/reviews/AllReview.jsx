@@ -7,7 +7,6 @@ import ReviewCard from './ReviewCard';
 const AllReview = ({ serviceDetails }) => {
     const [reviews, setReviews] = useState([]);
     // const [refresh, setRefresh] = useState(false);
-    console.log(serviceDetails._id);
 
     useEffect(() => {
         setReviews([]);
@@ -27,9 +26,15 @@ const AllReview = ({ serviceDetails }) => {
 
     return (
         <div>
-            {reviews.map((review) => (
-                <ReviewCard key={review._id} review={review} />
-            ))}
+            {reviews.length === 0 ? (
+                <div className='text-center mb-20'>Thanks For Interest. Be the first to add a review.</div>
+            ) : (
+                <div className="grid mb-20 justify-center md:grid-cols-2 gap-10">
+                    {reviews.map((review) => (
+                        <ReviewCard key={review._id} review={review} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

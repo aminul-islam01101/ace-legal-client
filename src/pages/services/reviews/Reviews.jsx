@@ -14,14 +14,15 @@ const Reviews = ({ serviceDetails }) => {
                 {user?.uid ? (
                     <AddReview serviceDetails={serviceDetails} />
                 ) : (
-                    <div>
-                        <Link className="underline" to="/signin">
+                    <div className="text-center mt-20">
+                        <Link className="underline mr-2 " to="/signin">
                             Sign in
                         </Link>
                         to add a review
                     </div>
                 )}
             </div>
+            <h3 className="text-center text-4xl mb-20 mt-5">Peoples Love in review 💓 tweet 💓</h3>
             <AllReview serviceDetails={serviceDetails} />
         </div>
     );

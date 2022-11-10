@@ -23,6 +23,8 @@ const ServiceAndReviews = () => {
     return (
         <div className="container">
             <ServiceDetails serviceDetails={serviceDetails} />
+            <hr />
+            
             <Reviews serviceDetails={serviceDetails} />
         </div>
     );

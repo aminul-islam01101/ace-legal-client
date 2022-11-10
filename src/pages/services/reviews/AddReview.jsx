@@ -83,47 +83,55 @@ const AddReview = ({ serviceDetails }) => {
                 className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-lg dark:bg-gray-900">
                     <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Personal Inormation</p>
+                        <p className="font-medium text-center">
+                            You are welcome to write a review of my service
+                        </p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full">
-                            <label htmlFor="message" className="text-sm">
-                                Bio
+                            <label htmlFor="message" className="text-sm font-bold">
+                                Review Tweet
                                 <textarea
                                     required
                                     {...register('message', {
                                         minLength: 4,
-                                        maxLength: 300,
+                                        maxLength: 500,
                                     })}
                                     id="message"
                                     placeholder="Write your review"
-                                    className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                                    className="w-full font-thin rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                                 />
-                                {errors?.message && <p>min 4 ch and max 300ch</p>}
+                                {errors?.message && (
+                                    <p className="text-red-500">
+                                        *Minimum 4 and maximum 500 character
+                                    </p>
+                                )}
                             </label>
-                            <label className="col-span-2">
-                                ratings:
-                                <span>
-                                    <input
-                                        step=".1"
-                                        type="number"
-                                        name="ratings"
-                                        id="ratings"
-                                        {...register('ratings', {
-                                            min: 0,
-                                            max: 5,
-                                        })}
-                                        placeholder="give a rating out of 5"
-                                    />
-                                    {errors?.ratings && <p>Number should be 0 to 5</p>}
-                                </span>
+                            <label className="col-span-full font-bold">
+                                Ratings:
+                                <input
+                                    step=".1"
+                                    type="number"
+                                    name="ratings"
+                                    id="ratings"
+                                    className="block rounded font-thin"
+                                    {...register('ratings', {
+                                        min: 0,
+                                        max: 5,
+                                    })}
+                                    placeholder="Give a rating out of 5"
+                                />
+                                {errors?.ratings && (
+                                    <p className="text-red-500">*Number should be between 0 to 5</p>
+                                )}
                             </label>
                             <div>
-                                <label htmlFor="position" className="text-sm">
+                                <label htmlFor="position" className="text-sm font-bold">
                                     Working As
                                     <input
+                                        type="text"
                                         required
                                         {...register('position', {
                                             minLength: 4,
@@ -131,9 +139,13 @@ const AddReview = ({ serviceDetails }) => {
                                         })}
                                         id="position"
                                         placeholder="Write your Working arena/position"
-                                        className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                                        className="w-full font-thin rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                                     />
-                                    {errors?.position && <p>min 4 ch and max 50ch</p>}
+                                    {errors?.position && (
+                                        <p className="text-red-500">
+                                            *Minimum 3 and maximum 50 character
+                                        </p>
+                                    )}
                                 </label>
                             </div>
                         </div>

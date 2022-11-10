@@ -73,10 +73,14 @@ const SignUp = () => {
                                     />
 
                                     {errors?.firstName?.type === 'pattern' && (
-                                        <p>Alphabetical characters only</p>
+                                        <p className="text-red-500">
+                                            *Alphabetical characters only
+                                        </p>
                                     )}
                                     {errors?.firstName?.type === 'maxLength' && (
-                                        <p>First name cannot exceed 20 characters</p>
+                                        <p className="text-red-500">
+                                            *First name cannot exceed 20 characters
+                                        </p>
                                     )}
                                 </div>
 
@@ -93,10 +97,14 @@ const SignUp = () => {
                                     />
 
                                     {errors?.lastName?.type === 'pattern' && (
-                                        <p>Alphabetical characters only</p>
+                                        <p className="text-red-500">
+                                            *Alphabetical characters only
+                                        </p>
                                     )}
                                     {errors?.lastName?.type === 'maxLength' && (
-                                        <p>First name cannot exceed 20 characters</p>
+                                        <p className="text-red-500">
+                                            *First name cannot exceed 20 characters
+                                        </p>
                                     )}
                                 </div>
                             </div>
@@ -132,7 +140,9 @@ const SignUp = () => {
                                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
                             />
                             {errors?.password?.type === 'pattern' && (
-                                <p>min 6ch , one letter, one number </p>
+                                <p className="text-red-500">
+                                    *Minimum 6 Character, include one letter and one number
+                                </p>
                             )}
                         </label>
                     </div>
@@ -150,7 +160,9 @@ const SignUp = () => {
                                 placeholder="Confirm password"
                                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
                             />
-                            {errors?.confirmPassword && <p>{errors?.confirmPassword?.message}</p>}
+                            {errors?.confirmPassword && (
+                                <p className="text-red-500">{errors?.confirmPassword?.message}</p>
+                            )}
                         </label>
 
                         {/* checkbox */}

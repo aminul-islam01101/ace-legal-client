@@ -21,7 +21,7 @@ const ServiceAndReviews = () => {
     // }, [id]);
 
     return (
-        <div>
+        <div className="container">
             <ServiceDetails serviceDetails={serviceDetails} />
             <Reviews serviceDetails={serviceDetails} />
         </div>

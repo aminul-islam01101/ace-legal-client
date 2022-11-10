@@ -14,9 +14,9 @@ const ServicesSection = () => {
     );
 
     return (
-        <div>
+        <div className='container'>
             <Head title="Services" />
-            <div className="grid grid-cols-3">
+            <div className="grid my-20 xl:grid-cols-3 gap-10 lg:gap-5">
                 {allServices.map((service) => (
                     <ServiceCard key={service._id} service={service} />
                 ))}

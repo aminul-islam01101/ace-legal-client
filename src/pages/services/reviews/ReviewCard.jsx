@@ -8,7 +8,7 @@ const ReviewCard = ({ review }) => {
 
     return (
         <div>
-            <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg p-5">
+            <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg p-5 mt-10">
                 <div className="flex gap-5 flex-wrap justify-between">
                     <p>Reviewed on: {date.split('T')[0]}</p>
                     <ReactStars

@@ -35,7 +35,12 @@ export default function Slider() {
                     alt=""
                 />
             </SwiperSlide>
-            <SwiperSlide className="h-[75vh]">Slide 2</SwiperSlide>
+            <SwiperSlide className="h-[75vh]">
+                <img
+                    src="https://i.ibb.co/6nghbft/patent-law-concept-with-man-weighing-scale-52683-48415.webp"
+                    alt=""
+                />
+            </SwiperSlide>
             <SwiperSlide className="h-[75vh]">Slide 3</SwiperSlide>
         </Swiper>
     );

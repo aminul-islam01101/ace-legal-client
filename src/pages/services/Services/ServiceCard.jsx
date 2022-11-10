@@ -4,6 +4,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import ReactStars from 'react-rating-stars-component';
+import NotAvailable from '../../../assets/images/Image_not_available.png';
 import formatCurrency from '../../../Utilities/FormateCurrency';
 
 const ServiceCard = ({
@@ -15,7 +16,7 @@ const ServiceCard = ({
                 <PhotoProvider>
                     <PhotoView src={serviceImage}>
                         <img
-                            src={serviceImage}
+                            src={serviceImage || NotAvailable}
                             alt=""
                             className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
                         />

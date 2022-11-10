@@ -36,8 +36,8 @@ export default function Navbar() {
     ];
 
     return (
-        <div>
-            <NavTag className="bg-slate-500">
+        <div className="sticky top-0 left-0 z-50">
+            <NavTag className="bg-slate-500 ">
                 <NavTag.Toggle />
                 <Link to="./" className="flex">
                     <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
@@ -80,7 +80,7 @@ export default function Navbar() {
                         arrowIcon={false}
                         inline
                         label={
-                            <Avatar  alt="User settings" img={user?.photoURL || AvatarImg} rounded />
+                            <Avatar alt="User settings" img={user?.photoURL || AvatarImg} rounded />
                         }
                     >
                         <Dropdown.Header>
@@ -122,7 +122,7 @@ export default function Navbar() {
                 </div>
 
                 <NavTag.Collapse className="md:space-x-1">
-                    <div className='flex gap-3'>
+                    <div className="flex gap-3">
                         {pages.map((page) => (
                             <li
                                 className=" rounded px-1 py-2 ml-0 hover:dark:text-black hover:bg-[#d3ecf3] transition ease-in-out delay-150 hover:shadow-lg  "

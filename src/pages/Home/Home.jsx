@@ -3,6 +3,7 @@ import Slider from './slider/Slider';
 import ServicesSection from './ServiceSection/ServicesSection';
 import Head from '../../components/Head';
 import TestimonialSlider from './testimonial/TestimonialSlider';
+import Consultation from './Consultation';
 
 const Home = () => {
     console.log('home');
@@ -14,6 +15,7 @@ const Home = () => {
             <div className="container">
                 <ServicesSection />
                 <TestimonialSlider />
+                <Consultation />
             </div>
         </div>
     );

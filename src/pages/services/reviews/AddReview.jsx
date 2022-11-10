@@ -30,37 +30,12 @@ const AddReview = ({ serviceDetails }) => {
     const muteFunc = async (data) => axios.post('https://ace-legal-server.vercel.app/review', data);
 
     const { mutate } = useMutation(muteFunc, {
-        onSuccess: () => toast.success('success'),
+        onSuccess: () => toast.success('Successfully posted Your Review'),
         onError: () => toast.error('there was an error'),
     });
 
-    // already stored review check
-    // const { data: storedReview } = useQuery(['storedReview'], () =>
-    //     axios
-    //         .get(`https://ace-legal-server.vercel.app/reviewBySingle?id=${_id}&email=${email}`)
-    //         .then((res) => res.data)
-    // );
-    // useEffect(() => {
-    //     fetch(
-    //         `https://ace-legal-server.vercel.app/reviewBySingle?id=${serviceDetails?._id}&email=${serviceDetails?.email}`
-    //     )
-    //         .then((res) => res())
-    //         .then((data) => {
-    //             console.log(data);
-
-    //             setStoredReview(data);
-    //         })
-    //         .catch(() => toast.error('No review added so far in this category'));
-    // }, [serviceDetails?._id, serviceDetails?.email, refresh]);
-
-    // console.log(storedReview);
-
     // react form hook  submit handler
     const onSubmit = (data) => {
-        // if (storedReview?.email && storedReview._id) {
-        //     setPrevReview('already reviewed.try to update');
-        //     return;
-        // }
         const reviewData = {
             ...data,
             customerName: displayName,

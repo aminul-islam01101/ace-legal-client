@@ -88,7 +88,7 @@ export default function Navbar() {
                         arrowIcon={false}
                         inline
                         label={
-                            <Avatar alt="User settings" img={user?.photoURL || AvatarImg} rounded />
+                            <Avatar alt="user image" img={user?.photoURL || AvatarImg} rounded />
                         }
                     >
                         <Dropdown.Header>

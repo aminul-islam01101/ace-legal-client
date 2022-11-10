@@ -6,8 +6,8 @@ import Conversation from '../../assets/conversation.json';
 const Consultation = () => (
     <div className="mb-20">
         <h2 className="text-5xl text-center mt-20 mb-10">Consultation</h2>
-        <div className="flex justify-between ">
-            <div className="bg-slate-200 p-10 w-70 rounded space-y-5">
+        <div className="flex flex-col-reverse md:flex-row justify-between ">
+            <div className="bg-slate-200 p-10 md:w-70 rounded space-y-5">
                 <h3 className="text-3xl">Pioneers in Legal Advisory</h3>
                 <p className="text-black/50">
                     First in SubContinent to have automatic cause list systems, automation of case

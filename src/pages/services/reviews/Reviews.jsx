@@ -15,7 +15,10 @@ const Reviews = ({ serviceDetails }) => {
                     <AddReview serviceDetails={serviceDetails} />
                 ) : (
                     <div className="text-center mt-20">
-                        <Link className="underline mr-2 " to="/signin">
+                        <Link
+                            className="underline mr-2 text-xl text-rose-400 font-bold "
+                            to="/signin"
+                        >
                             Sign in
                         </Link>
                         to add a review

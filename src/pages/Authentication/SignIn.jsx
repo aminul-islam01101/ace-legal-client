@@ -37,7 +37,7 @@ const Login = () => {
                 const currentUser = {
                     email: user.email,
                 };
-                console.log(currentUser);
+
                 fetch('https://ace-legal-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
@@ -48,7 +48,7 @@ const Login = () => {
                     .then((res) => res.json())
                     .then((data) => {
                         console.log(data);
-                     
+
                         localStorage.setItem('ace-legal-token', data.token);
                         form.reset();
                         setError('');
@@ -81,16 +81,48 @@ const Login = () => {
         googleSignIn()
             .then((result) => {
                 const { user } = result;
+                const currentUser = {
+                    email: user.email,
+                };
 
-                user.uid && navigate(from, { replace: true });
+                fetch('https://ace-legal-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+
+                        localStorage.setItem('ace-legal-token', data.token);
+
+                        user.uid && navigate(from, { replace: true });
+                    });
             })
-            .catch((errors) => {
-                console.error(errors);
+            .catch((error) => {
+                console.error(error);
+                setError(error.message);
             })
             .finally(() => {
                 setLoading(false);
             });
     };
+    // const handleGoogleSignIn = () => {
+    //     googleSignIn()
+    //         .then((result) => {
+    //             const { user } = result;
+
+    //             user.uid && navigate(from, { replace: true });
+    //         })
+    //         .catch((errors) => {
+    //             console.error(errors);
+    //         })
+    //         .finally(() => {
+    //             setLoading(false);
+    //         });
+    // };
 
     return (
         <div className="grid min-h-90v place-items-center my-6 ">

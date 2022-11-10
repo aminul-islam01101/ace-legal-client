@@ -1,15 +1,19 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import { useMutation} from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 import AuthContext from '../../../Contexts/AuthContext';
 
-const AddReview = ({ serviceDetails: { img, name, _id } }) => {
+const AddReview = ({ serviceDetails }) => {
     const [prevReview, setPrevReview] = useState('');
+    // const [storedReview, setStoredReview] = useState({});
+    const [refresh, setRefresh] = useState(false);
 
     // react form hook data
     const {
@@ -33,14 +37,27 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
     // already stored review check
     // const { data: storedReview } = useQuery(['storedReview'], () =>
     //     axios
-    //         .get(`https://ace-legal-server.vercel.app/reviews?id=${_id}&email=${email}`)
+    //         .get(`https://ace-legal-server.vercel.app/reviewBySingle?id=${_id}&email=${email}`)
     //         .then((res) => res.data)
     // );
+    // useEffect(() => {
+    //     fetch(
+    //         `https://ace-legal-server.vercel.app/reviewBySingle?id=${serviceDetails?._id}&email=${serviceDetails?.email}`
+    //     )
+    //         .then((res) => res())
+    //         .then((data) => {
+    //             console.log(data);
+
+    //             setStoredReview(data);
+    //         })
+    //         .catch(() => toast.error('No review added so far in this category'));
+    // }, [serviceDetails?._id, serviceDetails?.email, refresh]);
+
     // console.log(storedReview);
 
     // react form hook  submit handler
     const onSubmit = (data) => {
-        // if (storedReview[0]?.email) {
+        // if (storedReview?.email && storedReview._id) {
         //     setPrevReview('already reviewed.try to update');
         //     return;
         // }
@@ -49,15 +66,15 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
             customerName: displayName,
             email,
             customerImage: photoURL,
-            serviceName: name,
-            serviceImage: img,
-            serviceId: _id,
+            serviceName: serviceDetails.name,
+            serviceImage: serviceDetails.img,
+            serviceId: serviceDetails._id,
             date: new Date(),
         };
 
         mutate(reviewData);
+        setRefresh(!refresh);
         reset();
-        console.log('data');
     };
 
     return (
@@ -69,7 +86,6 @@ const AddReview = ({ serviceDetails: { img, name, _id } }) => {
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                     <div className="space-y-2 col-span-full lg:col-span-1">
                         <p className="font-medium">Personal Inormation</p>
-                      
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full">

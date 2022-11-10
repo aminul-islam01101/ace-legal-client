@@ -1,6 +1,6 @@
 import { Avatar, Dropdown, Navbar as NavTag } from 'flowbite-react';
 
-import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
 import Logo from '../assets/images/fav.ico';
@@ -27,7 +27,7 @@ export default function Navbar() {
     const pages = [
         { pageName: 'Home', link: '/', id: 1 },
         { pageName: 'Services', link: '/services', id: 2 },
-        { pageName: 'About', link: '/about', id: 3 },
+
         { pageName: 'Blogs', link: '/blogs', id: 4 },
     ];
     const protectedPage = [

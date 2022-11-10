@@ -24,7 +24,6 @@ const UpdateReview = () => {
             })
             .catch((err) => toast.error(err.message));
     }, [id]);
-    console.log(id);
 
     const onSubmit = (inputData) => {
         fetch(`https://ace-legal-server.vercel.app/myreview/${id}`, {
@@ -37,40 +36,43 @@ const UpdateReview = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                toast.success('successfully updated');
+                toast.success('Your Review Updated successfully');
                 navigate('/myreviews');
                 console.log(data);
             })
 
             .catch((err) => toast.error(err.message));
     };
-    console.log(existingReview);
 
     return (
-        <div>
+        <div className="my-36">
             <form
                 className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-lg dark:bg-gray-900">
                     <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Personal Inormation</p>
+                        <p className="font-medium"> Edit your review message</p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full">
                             <label htmlFor="message" className="text-sm">
-                                Edit your review message
+                                Review message Update
                                 <textarea
                                     required
                                     {...register('message', {
                                         minLength: 4,
-                                        maxLength: 300,
+                                        maxLength: 500,
                                     })}
                                     id="message"
                                     defaultValue={existingReview?.message}
                                     className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                                 />
-                                {errors?.message && <p>min 4 ch and max 300ch</p>}
+                                {errors?.message && (
+                                    <p className="text-red-500">
+                                        *Minimum 4 and maximum 500 character
+                                    </p>
+                                )}
                             </label>
                             <label className="col-span-2">
                                 ratings:
@@ -78,6 +80,7 @@ const UpdateReview = () => {
                                     <input
                                         defaultValue={existingReview?.ratings}
                                         step=".1"
+                                        className="block rounded"
                                         type="number"
                                         name="ratings"
                                         id="ratings"
@@ -86,14 +89,17 @@ const UpdateReview = () => {
                                             max: 5,
                                         })}
                                     />
-                                    {errors?.ratings && <p>Number should be 0 to 5</p>}
+                                    {errors?.ratings && (
+                                        <p className="text-red-500">
+                                            *Number should be Between 0 to 5
+                                        </p>
+                                    )}
                                 </span>
                             </label>
                         </div>
+                        <input className="button cursor-pointer" type="submit" />
                     </div>
                 </fieldset>
-
-                <input className="button" type="submit" />
             </form>
         </div>
     );

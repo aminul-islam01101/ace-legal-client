@@ -9,7 +9,6 @@ import 'aos/dist/aos.css';
 import router from './Routes/Routes';
 
 const App = () => {
-    console.log('app');
     const client = new QueryClient({
         defaultOptions: {
             queries: {

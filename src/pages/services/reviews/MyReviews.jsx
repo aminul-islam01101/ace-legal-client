@@ -6,6 +6,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Modal } from 'flowbite-react';
 
+import { toast } from 'react-hot-toast';
 import MyReviewCard from './MyReviewCard';
 import AuthContext from '../../../Contexts/AuthContext';
 
@@ -63,7 +64,7 @@ const MyReviews = () => {
                     console.log(data);
 
                     if (data.deletedCount) {
-                        alert('deleted successfully');
+                        toast.success(' Review Deleted successfully');
                         const remaining = myReviews?.reviews.filter((review) => review._id !== id);
                         setMyReviews(remaining);
                         setRefresh(!refresh);
@@ -96,7 +97,7 @@ const MyReviews = () => {
 
     return (
         <div>
-            <div>
+            <div className="grid gap-8 my-20">
                 {myReviews?.reviews?.map((myReview) => (
                     <MyReviewCard
                         key={myReview._id}
@@ -108,10 +109,12 @@ const MyReviews = () => {
 
             {/* delete modal */}
             <Modal show={open} onClose={handleClose}>
-                <Modal.Header> Are you sure to delete ?</Modal.Header>
+                <Modal.Header> Are you sure to delete Your Review ?</Modal.Header>
 
-                <Modal.Footer>
-                    <Button onClick={handleAgree}>I accept</Button>
+                <Modal.Footer className="justify-end">
+                    <Button className="button" onClick={handleAgree}>
+                        I accept
+                    </Button>
                     <Button color="gray" onClick={handleClose}>
                         Decline
                     </Button>

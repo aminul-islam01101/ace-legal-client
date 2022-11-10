@@ -61,13 +61,21 @@ export default function Navbar() {
                         ) : (
                             <div className="flex mx-5">
                                 <li className="list-none">
-                                    <Link to="/signin" className="mr-2 text-black dark:text-white ">
+                                    <Link
+                                        to="/signin"
+                                        className="mr-2 text-black dark:text-white underline "
+                                    >
                                         SignIn
                                     </Link>
                                 </li>
                                 <li className="list-none">
                                     <Link to="/signup" className="text-black dark:text-white">
-                                        SignUp
+                                        <button
+                                            type="button"
+                                            className="px-4 py-1 font-semibold border rounded dark:border-gray-100 dark:text-gray-100"
+                                        >
+                                            SignUp
+                                        </button>
                                     </Link>
                                 </li>
                             </div>
@@ -111,7 +119,12 @@ export default function Navbar() {
                                                 to="/signup"
                                                 className="text-black dark:text-white"
                                             >
-                                                SignUp
+                                                <button
+                                                    type="button"
+                                                    className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100"
+                                                >
+                                                    SignUp
+                                                </button>
                                             </Link>
                                         </li>
                                     </div>

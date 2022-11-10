@@ -47,7 +47,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className="container w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+        <div className="container w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 bg-slate-200 shadow-lg my-36">
             <Head title="SignUp" />
             <h1 className="text-2xl font-bold text-center">Sign Up</h1>
             <form
@@ -169,10 +169,7 @@ const SignUp = () => {
                         </div>
                         <div className="space-y-2">
                             <div>
-                                <button
-                                    type="submit"
-                                    className="w-full mt-8 px-8 py-3 font-semibold rounded-md dark:bg-violet-400 bg-sky-500 dark:text-gray-900"
-                                >
+                                <button type="submit" className="button w-full mt-10">
                                     Sign Up
                                 </button>
                             </div>
@@ -181,7 +178,7 @@ const SignUp = () => {
                                 <Link
                                     to="/Signin"
                                     rel="noopener noreferrer"
-                                    className="hover:underline  dark:text-violet-400"
+                                    className="underline  dark:text-violet-400"
                                 >
                                     Sign in
                                 </Link>

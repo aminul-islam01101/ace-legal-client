@@ -168,13 +168,18 @@ const Login = () => {
                             Reset
                         </button>
                     </div>
-                    <button type="submit" className="button w-full rounded-sm p-3 text-center">
-                        Login
+                    <button
+                        type="submit"
+                        className="button shadow-lg w-full rounded-sm p-3 text-center"
+                    >
+                        Sign in
                     </button>
                 </form>
                 <div className="flex items-center space-x-1 pt-4">
                     <div className="h-px flex-1 dark:bg-gray-700 sm:w-16" />
-                    <p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
+                    <p className="px-3 text-sm text-center dark:text-gray-400">
+                        Or <br /> Login with social accounts
+                    </p>
                     <div className="h-px flex-1 dark:bg-gray-700 sm:w-16" />
                 </div>
                 <div className="flex justify-center space-x-4">
@@ -182,10 +187,10 @@ const Login = () => {
                         onClick={handleGoogleSignIn}
                         aria-label="Login with Google"
                         type="button"
-                        className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                        className="flex items-center justify-center w-full p-4 space-x-4 shadow-lg border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
                     >
-                        <div className="flex items-center gap-5">
-                            <FcGoogle />
+                        <div className="flex  items-center gap-5">
+                            <FcGoogle className="text-2xl" />
                             <p>Login with Google</p>
                         </div>
                     </button>

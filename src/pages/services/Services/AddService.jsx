@@ -11,7 +11,6 @@ const AddService = () => {
     const {
         register,
         handleSubmit,
-        getValues,
         reset,
         formState: { errors },
     } = useForm({ mode: 'onChange' });
@@ -30,7 +29,7 @@ const AddService = () => {
         reset();
     };
     return (
-        <div className="container">
+        <div className="container my-36">
             <Head title="Add Service" />
             <h1 className="text-2xl font-bold text-center">Add a Service</h1>
             <form
@@ -55,10 +54,14 @@ const AddService = () => {
                                         className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
                                     />
                                     {errors?.serviceName?.type === 'pattern' && (
-                                        <p>Alphabetical characters only</p>
+                                        <p className="text-red-500">
+                                            *Alphabetical characters only
+                                        </p>
                                     )}
                                     {errors?.serviceName?.type === 'maxLength' && (
-                                        <p>service Name cannot exceed 100 characters</p>
+                                        <p className="text-red-500">
+                                            *service Name cannot exceed 100 characters
+                                        </p>
                                     )}
                                 </label>
                             </div>
@@ -70,13 +73,18 @@ const AddService = () => {
                                         step=".1"
                                         type="number"
                                         id="price"
+                                        className="block rounded"
                                         {...register('price', {
                                             min: 100,
                                             max: 50000,
                                         })}
                                         placeholder="Service Price"
                                     />
-                                    {errors?.price && <p>Number should be 100 to 50000</p>}
+                                    {errors?.price && (
+                                        <p className="text-red-500">
+                                            *Number should be 100 to 50000
+                                        </p>
+                                    )}
                                 </label>
                             </div>
 
@@ -85,33 +93,37 @@ const AddService = () => {
                                 {' '}
                                 <label className="col-span-2">
                                     ratings:
-                                    <span>
-                                        <input
-                                            step=".1"
-                                            type="number"
-                                            name="ratings"
-                                            id="ratings"
-                                            {...register('ratings', {
-                                                min: 0,
-                                                max: 5,
-                                            })}
-                                            placeholder="give a rating out of 5"
-                                        />
-                                        {errors?.ratings && <p>Number should be 0 to 5</p>}
-                                    </span>
+                                    <input
+                                        className="block"
+                                        step=".1"
+                                        type="number"
+                                        name="ratings"
+                                        id="ratings"
+                                        {...register('ratings', {
+                                            min: 0,
+                                            max: 5,
+                                        })}
+                                        placeholder="give a rating out of 5"
+                                    />
+                                    {errors?.ratings && (
+                                        <p className="text-red-500">*Number should be 0 to 5</p>
+                                    )}
                                 </label>
                             </div>
 
                             {/* Image */}
                             <div>
-                                <input
-                                    {...register('serviceImage', {
-                                        required: true,
-                                    })}
-                                    id="serviceImage"
-                                    placeholder="Please Enter Service Image Url"
-                                    className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
-                                />
+                                <label className="col-span-2">
+                                    Add Photo Url
+                                    <input
+                                        {...register('serviceImage', {
+                                            required: true,
+                                        })}
+                                        id="serviceImage"
+                                        placeholder="Please Enter Service Image Url"
+                                        className="w-full block px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+                                    />
+                                </label>
                             </div>
                             {/* Description */}
                             <div>
@@ -126,10 +138,14 @@ const AddService = () => {
                                         placeholder="Write service description"
                                         className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                                     />
-                                    {errors?.description && <p>min 50 ch</p>}
+                                    {errors?.description && (
+                                        <p className="text-red-500">
+                                            *Description should be minimum 50 Character
+                                        </p>
+                                    )}
                                 </label>
                             </div>
-                            <input className="button" type="submit" value="submit" />
+                            <input className="button cursor-pointer" type="submit" value="submit" />
                         </div>
                     </div>
                 </div>

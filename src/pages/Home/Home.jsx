@@ -5,20 +5,16 @@ import Head from '../../components/Head';
 import TestimonialSlider from './testimonial/TestimonialSlider';
 import Consultation from './Consultation';
 
-const Home = () => {
-    console.log('home');
-
-    return (
-        <div>
-            <Head title="Home" />
-            <Slider />
-            <div className="container">
-                <ServicesSection />
-                <TestimonialSlider />
-                <Consultation />
-            </div>
+const Home = () => (
+    <div>
+        <Head title="Home" />
+        <Slider />
+        <div className="container">
+            <ServicesSection />
+            <TestimonialSlider />
+            <Consultation />
         </div>
-    );
-};
+    </div>
+);
 
 export default Home;

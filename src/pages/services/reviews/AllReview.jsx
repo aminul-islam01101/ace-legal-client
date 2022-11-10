@@ -22,7 +22,7 @@ const AllReview = ({ serviceDetails }) => {
             })
             .catch((err) => toast.error(err.message));
     }, [serviceDetails?._id]);
-    console.log(reviews.length);
+
 
     return (
         <div>

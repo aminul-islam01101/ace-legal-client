@@ -42,7 +42,7 @@ const ServiceCard = ({
                     />
                 </div>
                 <Link to={`/service/${id}`}>
-                    <button type="button" className="button w-full">
+                    <button type="button" className="button w-full shadow-lg">
                         Details
                     </button>
                 </Link>

@@ -9,7 +9,7 @@
         @apply w-full px-0;
     }
     .button {
-        @apply inline-block whitespace-nowrap rounded-md border-0 bg-[#38c2aa] hover:bg-[#1b7061] px-4 py-2 font-semibold text-black uppercase hover:text-white outline-none;
+        @apply inline-block whitespace-nowrap rounded-md border-0 bg-sky-300 hover:bg-sky-500 px-4 py-2 font-semibold text-black uppercase hover:text-white outline-none;
         font-size: 0.8rem;
     }
     body {

@@ -11,7 +11,6 @@ const ServicesSection = () => {
     } = useQuery(['fewServices'], () =>
         axios.get('https://ace-legal-server.vercel.app/services').then((res) => res.data)
     );
-    console.log(fewServices);
 
     return (
         <div className="">

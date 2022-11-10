@@ -16,7 +16,6 @@ const TestimonialSlider = () => {
     const { data: reviews } = useQuery(['reviews'], () =>
         axios.get('https://ace-legal-server.vercel.app/reviews').then((res) => res.data)
     );
-    console.log(reviews);
 
     return (
         <div className="my-20">

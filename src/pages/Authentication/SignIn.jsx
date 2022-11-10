@@ -94,8 +94,6 @@ const Login = () => {
                 })
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log(data);
-
                         localStorage.setItem('ace-legal-token', data.token);
 
                         user.uid && navigate(from, { replace: true });
@@ -109,7 +107,6 @@ const Login = () => {
                 setLoading(false);
             });
     };
-
 
     return (
         <div className="grid min-h-90v place-items-center my-6 ">

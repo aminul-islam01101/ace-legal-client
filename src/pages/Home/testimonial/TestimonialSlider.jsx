@@ -55,7 +55,7 @@ const TestimonialSlider = () => {
                 className="mySwiper"
             >
                 {reviews?.map((review) => (
-                    <SwiperSlide key={review._id} className="h-[50vh]">
+                    <SwiperSlide key={Math.random()} className="h-[50vh]">
                         <ReviewCard review={review} />
                     </SwiperSlide>
                 ))}

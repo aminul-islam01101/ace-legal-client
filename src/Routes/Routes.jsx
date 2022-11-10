@@ -9,7 +9,7 @@ import SignUp from '../pages/Authentication/SignUp';
 import Root from './Root';
 
 import Home from '../pages/Home/Home';
-import About from '../components/About';
+
 import ProtectedRoute from './ProtectedRoute';
 
 import Blogs from '../pages/blogs/Blogs';
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+
             <Route path="/services" element={<Services />} />
             <Route
                 path="/service/:id"

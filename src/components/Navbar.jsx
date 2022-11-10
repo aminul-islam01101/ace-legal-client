@@ -53,7 +53,7 @@ export default function Navbar() {
                                 <button
                                     onClick={handleClick}
                                     type="button"
-                                    className="underline mr-3 text-black"
+                                    className="px-4 py-1 font-semibold border rounded dark:border-gray-100 dark:text-gray-100"
                                 >
                                     logout
                                 </button>
@@ -98,7 +98,7 @@ export default function Navbar() {
                                         <button
                                             onClick={handleClick}
                                             type="button"
-                                            className=" underline text-black"
+                                            className="px-4 py-1 font-semibold border rounded dark:border-gray-100 dark:text-gray-100"
                                         >
                                             logout
                                         </button>

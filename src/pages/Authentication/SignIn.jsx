@@ -109,20 +109,7 @@ const Login = () => {
                 setLoading(false);
             });
     };
-    // const handleGoogleSignIn = () => {
-    //     googleSignIn()
-    //         .then((result) => {
-    //             const { user } = result;
 
-    //             user.uid && navigate(from, { replace: true });
-    //         })
-    //         .catch((errors) => {
-    //             console.error(errors);
-    //         })
-    //         .finally(() => {
-    //             setLoading(false);
-    //         });
-    // };
 
     return (
         <div className="grid min-h-90v place-items-center my-6 ">

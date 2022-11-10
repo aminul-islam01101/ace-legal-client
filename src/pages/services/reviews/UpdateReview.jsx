@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
+import Head from '../../../components/Head';
 
 const UpdateReview = () => {
     const { id } = useParams();
@@ -46,6 +47,7 @@ const UpdateReview = () => {
 
     return (
         <div className="my-36">
+             <Head title="Update-Review" />
             <form
                 className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
                 onSubmit={handleSubmit(onSubmit)}

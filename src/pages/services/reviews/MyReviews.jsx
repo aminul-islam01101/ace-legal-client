@@ -7,8 +7,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Button, Modal } from 'flowbite-react';
 
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import MyReviewCard from './MyReviewCard';
 import AuthContext from '../../../Contexts/AuthContext';
+import Head from '../../../components/Head';
 
 const MyReviews = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -94,17 +96,32 @@ const MyReviews = () => {
     const handleClose = () => {
         setOpen(false);
     };
+    console.log(myReviews.reviews);
 
     return (
         <div>
-            <div className="grid gap-8 my-20">
-                {myReviews?.reviews?.map((myReview) => (
-                    <MyReviewCard
-                        key={myReview._id}
-                        myReview={myReview}
-                        handleClick={handleClick}
-                    />
-                ))}
+             <Head title="My-Reviews" />
+            <div>
+                {myReviews?.reviews?.length === 0 ? (
+                    <div className="min-h-screen grid place-items-center">
+                        <div className="font-bold text-lg">
+                            No Reviews Found. Try to add a review from our
+                            <Link className="underline ml-1 " to="/services">
+                                services
+                            </Link>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="grid gap-8 my-20">
+                        {myReviews?.reviews?.map((myReview) => (
+                            <MyReviewCard
+                                key={myReview._id}
+                                myReview={myReview}
+                                handleClick={handleClick}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* delete modal */}

@@ -2,9 +2,11 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import Author from '../../assets/images/author.jpg';
+import Head from '../../components/Head';
 
 const Blogs = () => (
     <div>
+        <Head title="Blogs" />
         <div className="dark:bg-gray-800 dark:text-gray-50">
             <div className="container grid grid-cols-12 mx-auto">
                 <div

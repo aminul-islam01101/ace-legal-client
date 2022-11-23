@@ -22,6 +22,7 @@ import UpdateReview from '../pages/services/reviews/UpdateReview';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
+        // main route
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route path="/" element={<Home />} />
 
